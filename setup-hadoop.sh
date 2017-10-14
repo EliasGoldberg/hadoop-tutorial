@@ -1,4 +1,5 @@
 #!/bin/bash
+username=$1
 sudo apt-get update
 sudo apt-get -y install default-jdk
 echo "wgetting the hadoop tarball"
@@ -11,4 +12,5 @@ then
   exit 1
 fi
 sudo tar -xzf /tmp/hadoop-2.8.1.tar.gz -C /usr/local
-sudo sed -i 's/{JAVA_HOME}$/(readlink -f \/usr\/bin\/java | sed "s:bin\/java::")/' /usr/local/hadoop-2.8.1/etc/hadoop/hadoop-env.sh
+sudo chown -R $username /usr/local/hadoop-2.8.1
+
