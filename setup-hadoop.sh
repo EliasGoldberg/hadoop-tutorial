@@ -17,4 +17,3 @@ fi
 echo "sha checked succeeded.  un-tarring..."
 sudo tar -xzf /tmp/hadoop-2.8.1.tar.gz -C /usr/local
 sudo chown -R $username /usr/local/hadoop-2.8.1
-

@@ -10,7 +10,8 @@
   $ scp *.xml $hadoop:/tmp/
   $ ssh $hadoop 'bash -s' < configure-hadoop.sh $(whoami)
   ```
-* open a browser and navigate to http://<your server's ip address>:50070/
+* open a new browser tab and navigate to http://<your server's ip address>:50070/
+* open a new browser tab and navigate to http://<your server's ip address>:8088/
 
 ## References
 * [How To Use SSH Keys with DigitalOcean Droplets](https://www.digitalocean.com/community/tutorials/how-to-use-ssh-keys-with-digitalocean-droplets)
