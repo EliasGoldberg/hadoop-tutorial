@@ -14,13 +14,16 @@ username=$1
 publickey="$2 $3 $4"
 adduser --disabled-password --gecos "" $username
 usermod -aG sudo $username
+
 mkdir /home/$username/.ssh
 touch /home/$username/.ssh/authorized_keys
+
 echo $publickey > /home/$username/.ssh/authorized_keys
 chown -R $username /home/$username/.ssh
 chmod 700 /home/$username/.ssh
 chmod 600 /home/$username/.ssh/authorized_keys
 echo "$username ALL=(ALL:ALL) NOPASSWD:ALL" >> /etc/sudoers
+
 systemctl reload sshd
 ufw allow OpenSSH
 ufw allow 50070
