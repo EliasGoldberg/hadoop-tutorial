@@ -12,6 +12,7 @@ done
 for node in $(echo $nodes | sed "s/,/ /g")
 do
     ip_host_key=$(ssh root@$node 'bash -s' < setup_key.sh $user $node)
+    echo "ip_host_key"
     for other_node in $(echo $nodes | sed "s/,/ /g")
     do
         if [ $node != $other_node ]

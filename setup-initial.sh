@@ -24,7 +24,6 @@ chmod 700 /home/$username/.ssh
 chmod 600 /home/$username/.ssh/authorized_keys
 echo "$username ALL=(ALL:ALL) NOPASSWD:ALL" >> /etc/sudoers
 
-systemctl reload sshd
 ufw allow OpenSSH
 ufw allow 50070
 ufw allow 8088
@@ -34,5 +33,7 @@ ufw allow 8031
 ufw allow 8032
 ufw allow 8033
 ufw allow 35715
+ufw allow 54310
 ufw --force enable
 sed -i 's/^PermitRootLogin yes$/PermitRootLogin no/' /etc/ssh/sshd_config
+systemctl reload sshd
